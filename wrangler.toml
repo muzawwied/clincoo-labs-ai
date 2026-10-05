@@ -1,0 +1,18 @@
+name = "clincoo-labs-ai"
+main = "worker.js"
+compatibility_date = "2026-09-01"
+account_id = "59db6147da9378dbff365a8d52243fcf"
+
+# Lapisan orkestra: L1 Ollama gemma3 (LABS_OLLAMA_URL dari D1) → L2 OpenRouter
+# GLM 5.3 Flash (streaming, kunci OPENROUTER_API_KEY% dari D1) → L3 Clouvia
+# (glm5.3-flash, free-model) → L4 Workers AI (GPT-OSS 120B, Llama 3.3 70B) →
+# L5 Gemini (3.6 Flash, 3 Flash Preview, kunci GEMINI_API_KEY% dari D1).
+# URL Ollama & semua kunci dibaca runtime dari tabel env_vars D1 (clincoo-db).
+
+[[d1_databases]]
+binding = "DB"
+database_name = "clincoo-db"
+database_id = "49b6fed3-a237-46e3-ab2b-b0de31cc862b"
+
+[ai]
+binding = "AI"
